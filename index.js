@@ -12,7 +12,7 @@ pdfjsLib.getDocument(url).promise.then(pdf => {
         // 1. Crear un canvas por cada página
         const canvas = document.createElement('canvas');
         const li = document.createElement('li');
-        li.className = 'page_pdf'
+        canvas.className = 'page_pdf'
         // canvas.style.margin = '20px auto';
         li.appendChild(canvas);
         container_pdf.appendChild(li);
