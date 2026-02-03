@@ -34,7 +34,7 @@ nav {
 .nav_container {
     display: flex;
     margin: auto;
-    padding: 0 15px;
+    padding: 2px 15px;
     width: 100%;
     grid-template-columns: minmax(50px, 100%) 1fr minmax(50px, 100%);
     justify-content: space-between;
@@ -56,6 +56,11 @@ nav {
     font-size: 18px;
     font-weight: 100;
     padding: 1.5vh 10px;
+}
+
+.nav_item_link:hover {
+    font-weight: bold;
+    background-color: #2b2b2b84;
 }
 
 .container_pdf {
