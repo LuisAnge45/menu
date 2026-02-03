@@ -1,7 +1,10 @@
-const url = './web/menu.pdf'; // Cambia esto por tu archivo
+import * as pdfjsLib from './build/pdf.mjs';
 
+pdfjsLib.GlobalWorkerOptions.workerSrc = './build/pdf.worker.mjs';
+
+const url = './web/menu.pdf'; // Cambia esto por tu archivo
 // 1. Configurar el worker (usa el archivo de tu carpeta build)
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cafe-konh-cafe.netlify.app/build/pdf.worker.mjs';
+// pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cafe-konh-cafe.netlify.app/build/pdf.worker.mjs';
 
 // 2. Cargar el documento
 const loadingTask = pdfjsLib.getDocument(url);
