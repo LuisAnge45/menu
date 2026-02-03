@@ -6,14 +6,11 @@ const url = './web/menu.pdf';
 const container = document.getElementsByClassName("container")[0]; // El PDF se insertará aquí
 
 pdfjsLib.getDocument(url).promise.then(pdf => {
-    console.log(`El PDF tiene ${pdf.numPages} páginas`);
-
     // Recorremos todas las páginas del documento
     for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
         
         // 1. Crear un canvas por cada página
         const canvas = document.createElement('canvas');
-        canvas.style.display = 'block';
         canvas.style.margin = '20px auto';
         container.appendChild(canvas);
 
@@ -23,9 +20,10 @@ pdfjsLib.getDocument(url).promise.then(pdf => {
             const viewport = page.getViewport({ scale: scale });
             const context = canvas.getContext('2d');
 
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
-
+            // canvas.height = viewport.height;
+            // canvas.width = viewport.width;
+            canvas.height = "100vh";
+            canvas.width = "100%";
             const renderContext = {
                 canvasContext: context,
                 viewport: viewport
