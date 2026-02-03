@@ -3,7 +3,7 @@ import * as pdfjsLib from './build/pdf.mjs';
 pdfjsLib.GlobalWorkerOptions.workerSrc = './build/pdf.worker.mjs';
 
 const url = './web/menu.pdf'; 
-const container = document.getElementsByClassName("container")[0]; // El PDF se insertará aquí
+const container_pdf = document.getElementsByClassName("container_pdf")[0]; // El PDF se insertará aquí
 
 pdfjsLib.getDocument(url).promise.then(pdf => {
     // Recorremos todas las páginas del documento
@@ -11,8 +11,10 @@ pdfjsLib.getDocument(url).promise.then(pdf => {
         
         // 1. Crear un canvas por cada página
         const canvas = document.createElement('canvas');
+        const li = document.createElement('li');
         // canvas.style.margin = '20px auto';
-        container.appendChild(canvas);
+        li.appendChild(canvas);
+        container_pdf.appendChild(li);
 
         // 2. Renderizar la página actual
         pdf.getPage(pageNum).then(page => {
