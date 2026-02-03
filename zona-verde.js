@@ -2,7 +2,7 @@ import * as pdfjsLib from './build/pdf.mjs';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = './build/pdf.worker.mjs';
 
-const url = './web/menu.pdf'; 
+const url = './web/zona-verde.pdf'; 
 const container_pdf = document.getElementsByClassName("container_pdf")[0]; // El PDF se insertará aquí
 
 
