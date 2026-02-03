@@ -22,8 +22,8 @@ pdfjsLib.getDocument(url).promise.then(pdf => {
 
             // canvas.height = viewport.height;
             // canvas.width = viewport.width;
-            canvas.height = "100vh";
-            canvas.width = "100%";
+            canvas.style.width = "100%";
+            canvas.style.height = "100vh";
             const renderContext = {
                 canvasContext: context,
                 viewport: viewport
