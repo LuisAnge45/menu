@@ -32,37 +32,30 @@ nav {
 }
 
 .nav_container {
-    display: grid;
+    display: flex;
     margin: auto;
-    width: 256px;
+    padding: 0 15px;
+    width: 100%;
     grid-template-columns: minmax(50px, 100%) 1fr minmax(50px, 100%);
+    justify-content: space-between;
+}
 
+.nav_container > div {
+    display: flex;
+    
 }
 
 .nav_item_link_text {
     width: 100%;
     text-align: center;
-    margin: 1.5vh 5px;
-    height: 100%;
-}
-
-
-.nav_item_link_left {
-    columns: 1;
     
 }
 
-.nav_item_link_center {
-    columns: 2;
-}
-
-.nav_item_link_right {
-    columns: 1 ;
-}
 
 .nav_item_link {
     font-size: 18px;
     font-weight: 100;
+    padding: 1.5vh 10px;
 }
 
 .container_pdf {
