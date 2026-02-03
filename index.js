@@ -3,7 +3,7 @@ import * as pdfjsLib from './build/pdf.mjs';
 pdfjsLib.GlobalWorkerOptions.workerSrc = './build/pdf.worker.mjs';
 
 const url = './web/menu.pdf'; 
-const container = document.body; // El PDF se insertará aquí
+const container = document.getElementsByClassName("container")[0]; // El PDF se insertará aquí
 
 pdfjsLib.getDocument(url).promise.then(pdf => {
     console.log(`El PDF tiene ${pdf.numPages} páginas`);
