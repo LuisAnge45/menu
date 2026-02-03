@@ -9,13 +9,18 @@
 	<body>
 		<div class="container" style="display: flex; flex-direction: column;">
 			<nav>
-				<ul>
-					<li class="nav_item"><a class="nav_item_link" href="https://cafe-konh-cafe.netlify.app">Menú</a></li>
-					<hr>
-					<li class="nav_item"><a class="nav_item_link">Cafe Kohn Cafe</a></li>
-					<hr>
-					<li class="nav_item"><a class="nav_item_link">Zona Verde</a></li>
-				</ul>
+				<div class="nav_container">
+					<a class="nav_item_link nav_item_link_left" href="https://cafe-konh-cafe.netlify.app">
+						<p class="nav_item_link_text">Menú</p>
+					</a>
+					<!-- <hr> -->
+					 <img class="nav_item_link_center" src="./favicon.png" width="35px" alt="Cafe Kohn Cafe">
+					<!-- <a class="nav_item_link_center"></a>	 -->
+					<!-- <hr> -->
+					<a class="nav_item_link nav_item_link_right" href="https://cafe-konh-cafe.netlify.app/zona-verde">
+						<p class="nav_item_link_text">Zona Verde</p>
+					</a>
+				</div>
 			</nav>
 			<main>
 				<ul class="container_pdf">
@@ -24,7 +29,7 @@
 			</main>
 		</div>
 		<script src="./build/pdf.mjs"></script>
-		<script src="index.js" type="module"></script>
+		<script src="zona-verde.js" type="module"></script>
 	</body>
 </html>
 
