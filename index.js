@@ -2,32 +2,37 @@ import * as pdfjsLib from './build/pdf.mjs';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = './build/pdf.worker.mjs';
 
-const url = './web/menu.pdf'; // Cambia esto por tu archivo
-// 1. Configurar el worker (usa el archivo de tu carpeta build)
-// pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cafe-konh-cafe.netlify.app/build/pdf.worker.mjs';
+const url = './web/menu.pdf'; 
+const container = document.body; // El PDF se insertará aquí
 
-// 2. Cargar el documento
-const loadingTask = pdfjsLib.getDocument(url);
-loadingTask.promise.then(pdf => {
-    
-    // 3. Obtener la primera página
-    pdf.getPage(1).then(page => {
-        const scale = 1.5; // Ajusta el zoom aquí
-        const viewport = page.getViewport({ scale: scale });
+pdfjsLib.getDocument(url).promise.then(pdf => {
+    console.log(`El PDF tiene ${pdf.numPages} páginas`);
 
-        // 4. Preparar el canvas
-        const canvas = document.getElementById('pdf-canvas');
-        const context = canvas.getContext('2d');
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
+    // Recorremos todas las páginas del documento
+    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+        
+        // 1. Crear un canvas por cada página
+        const canvas = document.createElement('canvas');
+        canvas.style.display = 'block';
+        canvas.style.margin = '20px auto';
+        container.appendChild(canvas);
 
-        // 5. Renderizar
-        const renderContext = {
-            canvasContext: context,
-            viewport: viewport
-        };
-        page.render(renderContext);
-    });
+        // 2. Renderizar la página actual
+        pdf.getPage(pageNum).then(page => {
+            const scale = 1.5;
+            const viewport = page.getViewport({ scale: scale });
+            const context = canvas.getContext('2d');
+
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            const renderContext = {
+                canvasContext: context,
+                viewport: viewport
+            };
+            page.render(renderContext);
+        });
+    }
 }).catch(err => {
-    console.error('Error al cargar el PDF: ', err);
+    console.error('Error:', err);
 });
