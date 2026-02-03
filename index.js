@@ -1,4 +1,4 @@
-const url = 'cafe-konh-cafe.netlify.app/web/menu.pdf'; // Cambia esto por tu archivo
+const url = './web/menu.pdf'; // Cambia esto por tu archivo
 
 // 1. Configurar el worker (usa el archivo de tu carpeta build)
 pdfjsLib.GlobalWorkerOptions.workerSrc = './build/pdf.worker.js';
